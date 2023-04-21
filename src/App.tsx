@@ -1,9 +1,16 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ListagemCall from './pages/cards';
 
 function App() {
   return (
     <div>
-      Em construção
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ListagemCall/>} />
+          <Route path="/kanban" element={<ListagemCall/>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
