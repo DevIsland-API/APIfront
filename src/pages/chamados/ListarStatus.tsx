@@ -19,9 +19,7 @@ import { avisoErroDeletar } from "../../controllers/avisoErro";
 import { Link } from "react-router-dom";
 import { Calls } from "../../types/call";
 
-type Props = {}
 
-const ListarStatus = (props: Props) => {
 
   const url_atual = window.location.href;
   const id = window.location.href.split("/")[4]
@@ -226,13 +224,5 @@ return (
     </>
   );
 }
-
-// type Props = {}
-
-// const ListarStatus = (props: Props) => {
-//   return (
-//     <div>Listar por Status</div>
-//   )
-// }
 
 export default ListarStatus;
