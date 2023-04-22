@@ -10,6 +10,14 @@
   pointer-events: none;
 }
 
+.tabela{
+  margin: auto;
+  width: 50%; 
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 120%;
+}
+
+
 .cor-logo {
   background-color: #54C5CE !important;
 }
@@ -17,6 +25,7 @@
 .font-padrao-titulo {
   font-family: 'Coolvetica', sans-serif;
   letter-spacing: 0.1rem;
+  text-align: center;
 }
 
 .fv-help-block{

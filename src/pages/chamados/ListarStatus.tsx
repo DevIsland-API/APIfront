@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   FaSortUp,
   FaSortDown,
@@ -5,20 +6,22 @@ import {
   FaChevronLeft,
 } from "react-icons/fa";
 import { Container, Table, Form, FloatingLabel, Dropdown } from "react-bootstrap";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import autoAnimate from "@formkit/auto-animate";
-import excluir from "../images/excluir.png";
+import excluir from "../../images/excluir.png";
 import ReactPaginate from "react-paginate";
-import editar from "../images/editar.png";
+import editar from "../../images/editar.png";
 import axios from "axios";
-import "../app.css";
-import { URI } from "../enumerations/uri";
-import { avisoDeletar } from "../controllers/avisoConcluido";
-import { avisoErroDeletar } from "../controllers/avisoErro";
+import "../../app.css";
+import { URI } from "../../enumerations/uri";
+import { avisoDeletar } from "../../controllers/avisoConcluido";
+import { avisoErroDeletar } from "../../controllers/avisoErro";
 import { Link } from "react-router-dom";
-import { Calls } from "../types/call";
+import { Calls } from "../../types/call";
 
-function ListagemCall() {
+type Props = {}
+
+const ListarStatus = (props: Props) => {
 
   const url_atual = window.location.href;
   const id = window.location.href.split("/")[4]
@@ -103,8 +106,7 @@ function ListagemCall() {
   };
 
   //search
-
-  return (
+return (
     <>
       <div className="text-center">
         <h1 className="text-dark fw-bolder mb-0 font-padrao-titulo">
@@ -113,60 +115,42 @@ function ListagemCall() {
       </div>
       <Container className="px-2 mb-5">
         <Container>
-          <div className="d-flex align-items-center justify-content-between mt-4 Margin">
-            <button type="button" className="btn btn-form" onClick={() => window.location.href = '/solicitacao'}>Adicionar Chamado
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-send-check-fill"
-                viewBox="0 0 16 16">
-
-                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z" />
-              </svg>
-            </button>
+          <div className="d-flex mt-4">
           </div>
-          <Table bordered hover responsive>
+          <Table className='tabela'>
             <thead>
               <tr>
                 {/*cabeçalho tabela*/}
                 <th onClick={() => sorting("id")} className="text-center">
-                  Número da solitição
-                  {order === "ASC" ? <FaSortUp /> : <FaSortDown />}
+                  Número da solitição |
                 </th>
                 <th
                   onClick={() => sorting("callRequester")}
-                  className="text-center"
+                  className="text-center mr-2"
                 >
-                  Email do solicitante
-                  {order === "ASC" ? <FaSortUp /> : <FaSortDown />}
+                  Email do solicitante |
                 </th>
-                <th onClick={() => sorting("callType")} className="text-center">
-                  Tipo
-                  {order === "ASC" ? <FaSortUp /> : <FaSortDown />}
+                <th onClick={() => sorting("callType")} className="text-center mr-2">
+                  Tipo |
                 </th>
                 <th
                   onClick={() => sorting("callTitle")}
-                  className="text-center"
+                  className="text-center mr-2"
                 >
-                  Título
-                  {order === "ASC" ? <FaSortUp /> : <FaSortDown />}
+                  Título |
                 </th>
                 <th
                   onClick={() => sorting("callState")}
-                  className="text-center"
+                  className="text-center mr-2"
                 >
-                  Status
-                  {order === "ASC" ? <FaSortUp /> : <FaSortDown />}
+                  Status |
                 </th>
                 <th
                   onClick={() => sorting("callDateCreate")}
-                  className="text-center"
+                  className="text-center mr-2"
                 >
                   Data de criação
-                  {order === "ASC" ? <FaSortUp /> : <FaSortDown />}
+                  {order === "ASC" ? <FaSortUp /> : <FaSortDown />} |
                 </th>
                 <th className="text-center">Ações</th>
               </tr>
@@ -243,4 +227,12 @@ function ListagemCall() {
   );
 }
 
-export default ListagemCall;
+// type Props = {}
+
+// const ListarStatus = (props: Props) => {
+//   return (
+//     <div>Listar por Status</div>
+//   )
+// }
+
+export default ListarStatus;

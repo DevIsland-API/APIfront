@@ -1,17 +1,16 @@
-import React from 'react';
+import MainLayout from "./components/layout/MainLayout";
+import { routes } from "./routes";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ListagemCall from './pages/cards';
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<ListagemCall/>} />
-          <Route path="/kanban" element={<ListagemCall/>} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          {routes}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
