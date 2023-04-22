@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   FaSortUp,
   FaSortDown,
@@ -19,10 +19,13 @@ import { avisoErroDeletar } from "../../controllers/avisoErro";
 import { Link } from "react-router-dom";
 import { Calls } from "../../types/call";
 
+type Props = {}
+
+const ListarStatus = (props: Props) => {
 
 
   const url_atual = window.location.href;
-  const id = window.location.href.split("/")[4]
+  const id = window.location.href.split("/")[4];
 
   const [data, setData] = useState<Calls[]>([]);
 
@@ -223,6 +226,6 @@ return (
       </Container>
     </>
   );
-}
+};
 
 export default ListarStatus;
