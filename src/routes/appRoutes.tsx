@@ -38,12 +38,14 @@ const appRoutes: RouteType[] = [
             },
             {
                 path: "/chamados/novo",
-                element: <CriarChamado />,
-                state: "chamados.criar",
+                element: <CriarChamado isOpen={true} onClose={() => {}} />,
+                state: "chamados.novo",
                 sidebarProps: {
-                    displayText: "Criar Chamado"
+                    displayText: "Novo Chamado"
                 }
             },
+            
+
             {
                 path: "/chamados/all",
                 element: <ListarChamados />,
