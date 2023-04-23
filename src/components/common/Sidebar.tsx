@@ -25,13 +25,13 @@ const Sidebar = () => {
             }}
         >
             <List disablePadding>
-                <Toolbar sx={{ marginBottom: "20px" }}>
+                <Toolbar sx={{ marginBottom: "10px" }}>
                 <Stack
                     sx={{width: "100%"}}
                     direction="row"
                     justifyContent="center"
                 >
-                    <img alt="ioni logo" width="80%" src={assets.images.logo}/>
+                    <img alt="ionic logo" width="80%" src={assets.images.logo}/>
                 </Stack>
                 </Toolbar>
                 {appRoutes.map((route, index) => (
