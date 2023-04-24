@@ -1,25 +1,53 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './buttonSave.css';
 
 interface Props {
     onClick: () => void;
+    onClose: () => void;
 }
 
 const ButtonSave: React.FC<Props> = ({ onClick }) => {
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isSaved, setIsSaved] = useState(false);
 
-    const handleButtonClick = () => {
-        if (fileInputRef.current) {
-            fileInputRef.current.click();
-        }
+    const handleSave = () => {
+        setIsLoading(true);
+        onClick();
+        setTimeout(() => {
+            setIsLoading(false);
+            setIsSaved(true);
+            setTimeout(() => {
+                window.location.href = '/chamados/all';
+            }, 1000);
+        }, 2000);
     };
 
     return (
-        <div className="button-save">
-            <button onClick={handleButtonClick} className="file-button">
-                Criar Demanda
-            </button>
-            <input type="submit" className="file-input" ref={fileInputRef} onChange={onClick} />
+        <div>
+            <div className="button-save">
+                {isLoading ? (
+                    <div id="modal-ppp">
+                        <div className="modal">
+                            <div className="spinner"></div>
+                            <p>Salvando...</p>
+                        </div>
+                    </div>
+                ) : isSaved ? (
+                    <div id="modal-ppp">
+                        <div className="modal">
+                            <p>Dados salvos com sucesso!</p>
+                        </div>
+                    </div>
+                ) : (
+                    <>
+                        <button onClick={handleSave} className="file-button">
+                            Criar Demanda
+                        </button>
+                        <input type="submit" className="file-input" ref={fileInputRef} onClick={handleSave} />
+                    </>
+                )}
+            </div >
         </div>
     );
 }

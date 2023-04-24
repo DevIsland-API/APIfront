@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '../../components/modals/modalDemand';
+import demand from '../../images/demand.png'
 
 type Props = {
   isOpen: boolean;

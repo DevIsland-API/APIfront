@@ -8,7 +8,7 @@
     border-radius: 0.5em;
     padding: 0.5em;
     border: 1px solid #ccc;
-    background-color: #f8f8f8;
+    background-color: #fff;
     font-size: 1em;
     font-family: Helvetica, sans-serif;
     resize: none;
@@ -56,9 +56,9 @@
 .options-order {
   display: flex;
   flex-direction: column;
-  height: 106px; /* exemplo de altura máxima */
+  height: 100px; /* exemplo de altura máxima */
   overflow-y: scroll;
-      max-width: 36em;
+  max-width: 36em;
 }
   
 ::-webkit-scrollbar {
