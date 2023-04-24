@@ -31,7 +31,7 @@ const Sidebar = () => {
                     direction="row"
                     justifyContent="center"
                 >
-                    <img alt="ionic logo" width="80%" src={assets.images.logo}/>
+                    <img alt="ionic logo" width="200px" height='60px' src={assets.images.logo}/>
                 </Stack>
                 </Toolbar>
                 {appRoutes.map((route, index) => (

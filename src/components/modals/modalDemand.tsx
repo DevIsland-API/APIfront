@@ -12,9 +12,11 @@ import { text } from 'stream/consumers';
 type Props = {
     isOpen: boolean;
     onClose: () => void;
+
 };
 
 const Modal = ({ isOpen, onClose }: Props) => {
+    console.log('dasdasdasda', isOpen);
     const [title, setTitle] = useState('');
     const [interested, setInterested] = useState('');
     const [description, setDescription] = useState('');
@@ -42,8 +44,9 @@ const Modal = ({ isOpen, onClose }: Props) => {
     };
 
     const handleSave = () => {
-        // implementar lógica de salvar o chamado com os dados preenchidos
+        // Your save logic here
     };
+
     function handleInputChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
         const value = event.target.value;
         // Faz algo com o valor inserido no campo
@@ -58,7 +61,7 @@ const Modal = ({ isOpen, onClose }: Props) => {
     return (
 
         <div className="modal-overlay">
-            <div className="modal" style={{ width: '1052px', height: '564px' }}>
+            <div className="modal">
                 {/* <button onClick={onClose}>X</button> */}
                 <div className="modal-header">
                     <h3>Gerar Nova Demanda</h3>
@@ -67,7 +70,7 @@ const Modal = ({ isOpen, onClose }: Props) => {
                     <InputRadius />
                 </div>
                 <div className="modal-body" style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <div style={{ flex: 1 }}>
+                    <div >
                         <div>
                             <Input id="input-1" name="input-name" title="Título" placeholder="Insira título" />
                         </div>
@@ -81,8 +84,8 @@ const Modal = ({ isOpen, onClose }: Props) => {
                         </div>
 
                     </div>
-                    <div style={{ flex: 1 }}>
-                        <div style={{ flexDirection: 'column', alignItems: 'flex-end' }} className='description'>
+                    <div>
+                        <div className='description'>
                             <FileInput />
                             <div>
                                 <Select title="Interessados" className="my-select" id="my-select" options={[
@@ -100,7 +103,7 @@ const Modal = ({ isOpen, onClose }: Props) => {
 
                 </div>
                 <div className="button-save">
-                    <ButtonSave onClick={handleSave} />
+                    <ButtonSave onClick={() => handleSave()} onClose={() => onClose()} />
                 </div>
             </div >
         </div >

@@ -1,0 +1,220 @@
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 1.5em;
+    height: 88px;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    flex-direction: row
+}
+
+.current-date {
+    border-radius: 32px;
+    background-color: #EDF2FF;
+    padding: 0.5em;
+    font-size: 14px;
+    width: 108px;
+    height: 40px;
+    color: #242A2E;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-left: 10em;
+    margin-top: 0.5em;
+}
+
+.user-name {
+    font-size: 16px;
+    color: #242A2E;
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.btn-primary {
+    background-color: #72C3CC;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary i {
+    margin-right: 5px;
+}
+
+.header-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.dashboard-header .header-buttons button {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.dashboard-header .header-buttons button:hover {
+    background-color: #99e9f1;
+}
+
+
+
+.dashboard-sections {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dashboard-section {
+    width: 502px;
+    background-color: #fff;
+    margin-right: 16px;
+    padding: 26px;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    height: 26em;
+}
+
+
+.dashboard-section:last-child {
+    margin-right: 0;
+}
+
+.option {
+    background-color: #F7F8F8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.option img {
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    margin-right: 1em;
+}
+
+.option:last-child {
+    margin-bottom: 0;
+}
+
+.option .fa {
+    margin-right: 8px;
+}
+
+.option span {
+    text-align: left;
+    flex-grow: 1;
+}
+
+li {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-section h2 {
+    font-size: 24px;
+    color: #242A2E;
+    font-weight: bold;
+    margin-left: 0;
+    text-align: left;
+}
+
+.dashboard-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.count-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 1.5em;
+    height: 88px;
+    width: 100%;
+}
+
+.count-modal p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background-color: #D59206;
+    color: white;
+    font-weight: bold;
+}
+
+.icon-message {
+    height: 35px;
+    width: 35px;
+}
+
+.current-date img {
+    margin-left: 16px;
+}
+
+.dashboard-section {
+    /* your existing styles */
+    overflow-y: hidden;
+    /* hide the scrollbar by default */
+}
+
+.dashboard-section:hover {
+    overflow-y: auto;
+    /* show the scrollbar when the mouse is hovering */
+}
+
+.dashboard-section:hover::-webkit-scrollbar {
+    width: 14px;
+    height: 60%;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.dashboard-section:hover::-webkit-scrollbar-thumb {
+    background-color: #72C3CC;
+    border-radius: 8px;
+}

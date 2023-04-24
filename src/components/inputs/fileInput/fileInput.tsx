@@ -21,7 +21,7 @@ function FileInput() {
 
     return (
         <div>
-            <h3 className='title-anexos'>Anexos</h3>
+            <h3 id='title-anexos'>Anexos</h3>
             <div className="file-input-wrapper">
                 <div className="file-input-header">
                     <input
