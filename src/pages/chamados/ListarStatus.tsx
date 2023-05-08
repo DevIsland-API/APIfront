@@ -19,7 +19,7 @@ import { avisoErroDeletar } from "../../controllers/avisoErro";
 import { Link } from "react-router-dom";
 import { Calls } from "../../types/call";
 
-
+function ListarStatus() {
 
   const url_atual = window.location.href;
   const id = window.location.href.split("/")[4]
