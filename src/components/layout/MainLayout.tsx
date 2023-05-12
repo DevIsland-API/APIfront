@@ -20,8 +20,8 @@ const MainLayout = () => {
                     flexGrow: 1,
                     width: "100%",
                     minHeight: "100vh",
-                    backgroundColor: colorConfigs.mainBg,
-                    padding: 0
+                    backgroundColor: '#FFFFFF',
+                    padding: 0,
                 }}
             >
                 <Outlet />
