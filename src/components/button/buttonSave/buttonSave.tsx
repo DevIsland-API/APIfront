@@ -27,14 +27,14 @@ const ButtonSave: React.FC<Props> = ({ onClick }) => {
         <div>
             <div className="button-save">
                 {isLoading ? (
-                    <div id="modal-ppp">
+                    <div id="modal-save">
                         <div className="modal">
                             <div className="spinner"></div>
                             <p>Salvando...</p>
                         </div>
                     </div>
                 ) : isSaved ? (
-                    <div id="modal-ppp">
+                    <div id="modal-save">
                         <div className="modal">
                             <p>Dados salvos com sucesso!</p>
                         </div>

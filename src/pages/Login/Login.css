@@ -1,0 +1,41 @@
+html {
+    padding: 0;
+}
+
+.MuiBox-root {
+    padding: 0;
+}
+
+.MuiToolbar-root {
+    visibility: hidden;
+}
+
+.div-inputs-login input {
+    width: 22em !important;
+    padding: 0.5em !important;
+    margin-left: 6em;
+    border: none !important;
+    border-radius: 0.5em !important;
+    font-size: 1em !important;
+    border: 1px solid #ccc !important;
+    height: 48px;
+}
+
+.div-inputs-login .title-input {
+    margin-left: 5.5em;
+}
+
+.div-inputs-login label {
+    margin-bottom: 2px;
+}
+
+.button-submit-login {
+    width: 22em !important;
+    margin-top: 2em;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.link-button {
+  text-decoration: none;
+}

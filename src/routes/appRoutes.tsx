@@ -6,46 +6,50 @@ import ListarChamados from "../pages/chamados/ListarChamados";
 import CriarChamado from "../pages/chamados/CriarChamado";
 import ListarStatus from "../pages/chamados/ListarStatus";
 import ChamadosLayout from "../pages/chamados/ChamadosLayout";
+import Login from "../pages/Login/Login";
 
 const appRoutes: RouteType[] = [
     {
         index: true,
-        element: <HomePage/>,
+        element: <HomePage />,
         state: "home"
     },
     {
-        path: "/",
+        path: "/home",
         element: <HomePage />,
         state: "home",
         sidebarProps: {
             displayText: "Home",
-            icon: <HomeIcon/>
+            icon: <HomeIcon />
         }
     },
     {
+        path: "/login",
+        element: <Login />,
+        state: "login",
+    },
+    {
         path: "/chamados",
-        element: <ChamadosLayout/>,
+        element: <ChamadosLayout />,
         state: "chamados",
         sidebarProps: {
             displayText: "Chamados",
-            icon: <FactCheckIcon/>
+            icon: <FactCheckIcon />
         },
         child: [
-             {
+            {
                 index: true,
-                element: <ChamadosLayout/>,
+                element: <ChamadosLayout />,
                 state: "chamados",
             },
             {
                 path: "/chamados/novo",
-                element: <CriarChamado isOpen={true} onClose={() => {}} />,
+                element: <CriarChamado isOpen={true} onClose={() => { }} />,
                 state: "chamados.novo",
                 sidebarProps: {
                     displayText: "Novo Chamado"
                 }
             },
-            
-
             {
                 path: "/chamados/all",
                 element: <ListarChamados />,

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Modal from '../../components/modals/modalDemand';
-import demand from '../../images/demand.png'
+import Modal from '../../components/modals/modalDemand/modalDemand';
 
 type Props = {
   isOpen: boolean;
@@ -9,10 +8,6 @@ type Props = {
 
 const CriarChamado = ({ isOpen, onClose }: Props) => {
   const [modalAberto, setModalAberto] = useState(isOpen);
-
-  const handleClick = () => {
-    setModalAberto(true);
-  };
 
   const handleClose = () => {
     setModalAberto(false);

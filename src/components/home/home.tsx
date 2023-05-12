@@ -1,152 +1,154 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home.css';
-import dots from '../../images/mdi_dots-vertical.png'
-import option from '../../images/iconoir_mac-option-key.png'
-import iconMessage from '../../images/icon-message.png'
-import iconAccount from '../../images/icon-account.png'
-import iconAccountMultiple from '../../images/icon-account-multiple-plus.png'
-import iconFileUpload from '../../images/icon-file-upload.png'
-import iconCalendar from '../../images/icon-calendar.png'
+import dots from '../../images/mdi_dots-vertical.png';
+import option from '../../images/iconoir_mac-option-key.png';
+import iconMessage from '../../images/icon-message.png';
+import iconAccount from '../../images/icon-account.png';
+import iconAccountMultiple from '../../images/icon-account-multiple-plus.png';
+import iconFileUpload from '../../images/icon-file-upload.png';
 import { Link } from 'react-router-dom';
+import DashboardSection from '../sectionHome/sectionHome';
+import Calendar from '../calendar/calendar';
+import ButtonHeader from '../button/buttonHeader/buttonHeader';
+import ModalNewUser from '../modals/modalNewUser/modalNewUser';
+import ModalNewGroup from '../modals/modalNewGroup/modalNewGroup';
 
-
-type User = {
+interface User {
     id: number;
     name: string;
     email: string;
-};
+    image: string;
+    dotsImage: string;
+}
 
-type Analysis = {
+interface Item {
     id: number;
     name: string;
+    image: string;
+    dotsImage: string;
+}
+
+interface Analysis extends Item {
     status: string;
-};
+}
 
-type Approval = {
-    id: number;
-    name: string;
+interface Approval extends Item {
     priority: number;
-};
+}
 
-type Props = {
+interface DashboardProps {
     users: User[];
     analyses: Analysis[];
     approvals: Approval[];
-};
+}
 
-const Dashboard: React.FC<Props> = ({ users, analyses, approvals }) => {
+const Dashboard: React.FC<DashboardProps> = ({ users, analyses, approvals }) => {
+    const [isGrupoModalOpen, setGrupoModalOpen] = useState(false);
+    const [isUsuarioModalOpen, setUsuarioModalOpen] = useState(false);
+
+    const openGrupoModal = () => {
+        setGrupoModalOpen(true);
+    };
+
+    const closeGrupoModal = () => {
+        setGrupoModalOpen(false);
+    };
+
+    const openUsuarioModal = () => {
+        setUsuarioModalOpen(true);
+    };
+
+    const closeUsuarioModal = () => {
+        setUsuarioModalOpen(false);
+    };
+
     return (
         <div className="dashboard-container">
             <div className="dashboard-header">
-                <div className="user-info">
-                    <img src="https://picsum.photos/50" alt="Profile" className="profile-pic" />
-                    <div className="user-details">
-                        <p className="user-name">John Doe</p>
-                        <div className="current-date" >
-                            <img src={iconCalendar}></img>
-                            <p>24 Abr</p>
-                        </div>
-                    </div>
-                </div>
+                <Calendar />
                 <div className="header-buttons">
-                    <Link to='/chamados/novo' style={{ textDecoration: 'none' }}><button className="btn-primary new-demand-btn">
-                        <img className='icon-button' src={iconFileUpload}></img>
-                        Nova Demanda
-                    </button></Link>
+                    <Link to="/chamados/novo" style={{ textDecoration: 'none' }}>
+                        <ButtonHeader
+                            text="Nova Demanda"
+                            iconSrc={iconFileUpload}
+                            altText="File Upload"
+                            specificity="new-demand-btn"
+                        />
+                    </Link>
 
-                    <button className="btn-primary new-group-btn">
-                        <img className='icon-button' src={iconAccountMultiple}></img>
-                        Novo Grupo
-                    </button>
+                    <ButtonHeader
+                        text="Novo Grupo"
+                        iconSrc={iconAccountMultiple}
+                        altText="Account Multiple"
+                        specificity="new-group-btn"
+                        onClick={openGrupoModal}
+                    />
 
-                    <button className="btn-primary new-user-btn">
-                        <img className='icon-button' src={iconAccount}></img>
-                        Novo Usuário
-                    </button>
+                    <ButtonHeader
+                        text="Novo Usuário"
+                        iconSrc={iconAccount}
+                        altText="Account"
+                        specificity="new-user-btn"
+                        onClick={openUsuarioModal}
+                    />
+
+                    <ModalNewUser
+                        isOpen={isUsuarioModalOpen}
+                        onClose={closeUsuarioModal}
+                        title="Modal Title"
+                        description="Modal Description"
+                    />
+
+                    <ModalNewGroup
+                        isOpen={isGrupoModalOpen}
+                        onClose={closeGrupoModal}
+                    />
                 </div>
             </div>
+
             <div className="dashboard-container">
-                <div className="dashboard-section">
-                    <div className='count-modal'>
-                        <h2>Análises Pendentes</h2>
-                        <p className="count">{analyses.length}</p>
-                    </div>
-                    <ul>
-                        {analyses.map((analysis) => (
-                            <li key={analysis.id} className="option">
-                                <img src={option}></img>
-                                <span>{analysis.name}</span>
-                                <img src={dots}></img>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="dashboard-section">
-                    <div className='count-modal'>
-                        <h2>Aguardando Aprovação</h2>
-                        <p className="count">{approvals.length}</p>
-                    </div>
-                    <ul>
-                        {approvals.map((approval) => (
-                            <li key={approval.id} className="option">
-                                <img src={option}></img>
-                                <span>{approval.name}</span>
-                                <img src={dots}></img>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="dashboard-section">
-                    <div className='count-modal'>
-                        <h2>Usuários</h2>
-                        <p className="count">{users.length}</p>
-                    </div>
-                    <ul>
-                        {users.map((user) => (
-                            <li key={user.id} className="option">
-                                <img src={`https://picsum.photos/50`} className="user-image" />
-                                <span>{user.name}</span>
-                                <img className='icon-message' src={iconMessage}></img>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <DashboardSection title="Análises Pendentes" count={analyses.length} items={analyses} />
+                <DashboardSection title="Aguardando Aprovação" count={approvals.length} items={approvals} />
+                <DashboardSection title="Usuários" count={users.length} items={users} />
             </div>
+
         </div>
     );
 };
+
 // Simulações de dados
-const users = [
-    { id: 1, name: 'Pedro Santos', email: 'john@example.com' },
-    { id: 2, name: 'Mariana Silva', email: 'jane@example.com' },
-    { id: 3, name: 'Carolina Cristina', email: 'bob@example.com' },
-    { id: 4, name: 'Paulo Pererira', email: 'john@example.com' },
-    { id: 5, name: 'Danilo Ferreira', email: 'jane@example.com' },
-    { id: 6, name: 'Maria Castro', email: 'bob@example.com' },
+const users: User[] = [
+    { id: 1, name: 'Pedro Santos', email: 'john@example.com', image: iconMessage, dotsImage: 'https://picsum.photos/50' },
+    { id: 2, name: 'Mariana Silva', email: 'jane@example.com', image: iconMessage, dotsImage: 'https://picsum.photos/50' },
+    { id: 3, name: 'Carolina Cristina', email: 'bob@example.com', image: iconMessage, dotsImage: 'https://picsum.photos/50' },
+    { id: 4, name: 'Paulo Pererira', email: 'john@example.com', image: iconMessage, dotsImage: 'https://picsum.photos/50' },
+    { id: 5, name: 'Danilo Ferreira', email: 'jane@example.com', image: iconMessage, dotsImage: 'https://picsum.photos/50' },
+    { id: 6, name: 'Maria Castro', email: 'bob@example.com', image: iconMessage, dotsImage: 'https://picsum.photos/50' },
 ];
 
-const analyses = [
-    { id: 1, name: 'Análise 1', status: 'completed' },
-    { id: 2, name: 'Análise 2', status: 'pending' },
-    { id: 3, name: 'Análise 3', status: 'pending' },
-    { id: 4, name: 'Análise 4', status: 'completed' },
-    { id: 5, name: 'Análise 5', status: 'pending' },
-    { id: 6, name: 'Análise 6', status: 'pending' },
-    { id: 7, name: 'Análise 7', status: 'completed' },
-    { id: 8, name: 'Análise 8', status: 'pending' },
-    { id: 9, name: 'Análise 9', status: 'pending' },
+const analyses: Analysis[] = [
+    { id: 1, name: 'Análise 1', status: 'completed', image: dots, dotsImage: option },
+    { id: 2, name: 'Análise 2', status: 'pending', image: dots, dotsImage: option },
+    { id: 3, name: 'Análise 3', status: 'pending', image: dots, dotsImage: option },
+    { id: 4, name: 'Análise 4', status: 'completed', image: dots, dotsImage: option },
+    { id: 5, name: 'Análise 5', status: 'pending', image: dots, dotsImage: option },
+    { id: 6, name: 'Análise 6', status: 'pending', image: dots, dotsImage: option },
+    { id: 7, name: 'Análise 7', status: 'completed', image: dots, dotsImage: option },
+    { id: 8, name: 'Análise 8', status: 'pending', image: dots, dotsImage: option },
+    { id: 9, name: 'Análise 9', status: 'pending', image: dots, dotsImage: option },
 ];
 
-const approvals = [
-    { id: 1, name: 'Solicitação 1', priority: 1 },
-    { id: 2, name: 'Solicitação 2', priority: 2 },
-    { id: 3, name: 'Solicitação 3', priority: 3 },
-    { id: 4, name: 'Solicitação 4', priority: 1 },
-    { id: 5, name: 'Solicitação 5', priority: 2 },
-    { id: 6, name: 'Solicitação 6', priority: 3 },
-    { id: 7, name: 'Solicitação 7', priority: 1 },
-    { id: 8, name: 'Solicitação 8', priority: 2 },
+const approvals: Approval[] = [
+    { id: 1, name: 'Solicitação 1', priority: 1, image: dots, dotsImage: option },
+    { id: 2, name: 'Solicitação 2', priority: 2, image: dots, dotsImage: option },
+    { id: 3, name: 'Solicitação 3', priority: 3, image: dots, dotsImage: option },
+    { id: 4, name: 'Solicitação 4', priority: 1, image: dots, dotsImage: option },
+    { id: 5, name: 'Solicitação 5', priority: 2, image: dots, dotsImage: option },
+    { id: 6, name: 'Solicitação 6', priority: 3, image: dots, dotsImage: option },
+    { id: 7, name: 'Solicitação 7', priority: 1, image: dots, dotsImage: option },
+    { id: 8, name: 'Solicitação 8', priority: 2, image: dots, dotsImage: option },
 ];
+
 
 const App: React.FC = () => {
     return (

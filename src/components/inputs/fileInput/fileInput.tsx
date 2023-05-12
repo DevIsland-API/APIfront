@@ -12,7 +12,8 @@ function FileInput() {
     };
 
     const handleFileChange = (event) => {
-        setFiles([...files, ...Array.from(event.target.files)]);
+        const newFiles = Array.from(event.target.files);
+        setFiles([...files, ...newFiles]);
     };
 
     const handleRemoveFile = (fileName) => {
@@ -47,14 +48,13 @@ function FileInput() {
                     ))}
                 </ul>
 
-                {files.length === 0 ? (
+                {files.length === 0 && (
                     <p className='text'>Não há arquivos anexados</p>
-                ) : null}
+                )}
                 <button onClick={handleButtonClick} className="file-input-button">
                     Adicionar Arquivos
                 </button>
             </div>
-
         </div>
     );
 }
