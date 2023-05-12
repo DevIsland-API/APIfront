@@ -1,23 +1,24 @@
-import React, { ChangeEvent } from 'react';
-import './input.css';
+import React, { ChangeEvent, useState } from 'react';
 
 interface InputProps {
     id: string;
     name: string;
     title: string;
     placeholder: string;
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-    value?: string;
 }
 
-const Input: React.FC<InputProps> = ({
+const InputPassword: React.FC<InputProps> = ({
     id,
     name,
     title,
     placeholder,
-    onChange,
-    value,
 }) => {
+    const [value, setValue] = useState('');
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value);
+    };
+
     return (
         <div className="form-group">
             <div className="form-header">
@@ -27,12 +28,12 @@ const Input: React.FC<InputProps> = ({
             </div>
             <div className="form-input-container">
                 <input
-                    type="text"
+                    type="password"
                     id={id}
                     name={name}
                     className="form-input"
                     placeholder={placeholder}
-                    onChange={onChange}
+                    onChange={handleChange}
                     value={value}
                 />
             </div>
@@ -40,4 +41,4 @@ const Input: React.FC<InputProps> = ({
     );
 };
 
-export default Input;
+export default InputPassword;
