@@ -1,0 +1,94 @@
+.file-input-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 18px;
+  max-width: 36em;
+  margin-top: 0.8em;
+  height: 178px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.file-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  overflow-y: auto;
+}
+
+.file-input-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.6em;
+}
+
+.file-input-button {
+  background-color: #72c3cc;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-input-button:hover {
+  background-color: #7ed4dd;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.file-name {
+  margin: 0;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.file-name {
+  margin: 0;
+  margin-left: 8px;
+}
+
+#title-anexos img {
+  height: 20px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+#title-anexos {
+  font-size: 18px;
+}
+
+.text {
+  color: #697077;
+  text-align: center;
+  min-height: 1em;
+  margin-top: 0;
+}

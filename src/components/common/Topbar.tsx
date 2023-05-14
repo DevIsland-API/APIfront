@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar } from "@mui/material";
 import sizeConfigs from "../../configs/sizeConfigs";
 import colorConfigs from "../../configs/colorConfigs";
 
@@ -14,11 +14,6 @@ const Topbar = () => {
                 color: colorConfigs.topbar.color
             }}
         >
-            <Toolbar>
-                <Typography variant="h6">
-                    Barra superior
-                </Typography>
-            </Toolbar>
         </AppBar>
     );
 };

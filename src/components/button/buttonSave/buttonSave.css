@@ -1,0 +1,81 @@
+.button-save {
+  top: 0;
+  right: 0;
+}
+
+
+.button-save button {
+  background-color: #72C3CC;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 14em;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 5em;
+  font-weight: bold;
+  margin-left: 71em;
+}
+
+.button-save button:hover {
+  background-color: #62cbd4;
+}
+#modal-ppp  .spinner {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+#modal-ppp .spinner::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #62cbd4;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  border-color: #62cbd4;
+  }
+}
+
+#modal-save {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-save  .modal {
+  background-color: white;
+  width: 300px;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
