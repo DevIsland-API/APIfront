@@ -14,9 +14,13 @@ import { avisoErroDeletar } from "../../controllers/avisoErro";
 import { Link } from "react-router-dom";
 import { Calls } from "../../types/call";
 
+
+function ListarStatus() {
+
 type Props = {}
 
 const ListarStatus = (props: Props) => {
+
 
 
   // const url_atual = window.location.href;

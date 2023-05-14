@@ -6,7 +6,9 @@ import ListarChamados from "../pages/chamados/ListarChamados";
 import CriarChamado from "../pages/chamados/CriarChamado";
 import ListarStatus from "../pages/chamados/ListarStatus";
 import ChamadosLayout from "../pages/chamados/ChamadosLayout";
+
 import Login from "../pages/Login/Login";
+
 
 const appRoutes: RouteType[] = [
     {
