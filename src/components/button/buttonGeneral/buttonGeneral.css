@@ -1,0 +1,24 @@
+.general-button {
+  width: 158px;
+  height: 48px;
+  background-color: #72C3CC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-weight: bold;
+  padding: 20px;
+  color: #fff;
+}
+
+.general-button span {
+  font-size: 16px;
+  color: #fff;
+}
+
+.general-button:hover {
+  background-color: #4EACB8;
+}

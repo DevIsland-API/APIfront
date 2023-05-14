@@ -7,15 +7,9 @@
   justify-content: space-between;
   padding: 18px;
   border-radius: 8px;
-  margin-right: 16px; /* adiciona espaço entre os cards na horizontal */
-  margin-bottom: 16px; /* adiciona espaço entre os cards na vertical */
+  margin-right: 16px;
+  margin-bottom: 16px;
   border: 1px solid #D6D8DC;
-}
-
-.card-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* alinha os cards à esquerda */
 }
 
 .card-feature {
@@ -47,7 +41,7 @@
 .card-file {
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 .card-file p {
@@ -57,7 +51,7 @@
   color: #72C3CC;
 }
 
-.card-button {
+.button-analyse {
   width: 88px;
   height: 40px;
   background-color: #72C3CC;
@@ -69,30 +63,26 @@
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   font-weight: bold;
+  color: #fff;
 }
 
-.card-button:hover {
+.button-analyse:hover {
   background-color: #4EACB8;
 }
 
-.card-button span {
-  color: #FFFFFF;
-  font-size: 14px;
-}
-
 .icon-persons {
-    width: 88px;
-    height: 40px;
+  width: 88px;
+  height: 40px;
 }
 
 .icon-clip {
-    width: 16px;
-    height: 16px;
-    margin-right: 0 !important;
+  width: 16px;
+  height: 16px;
+  margin-right: 0;
 }
 
 .icon-circle {
-    width: 14px;
-    height: 14px;
-    margin-right: 0 !important;
+  width: 14px;
+  height: 14px;
+  margin-right: 0;
 }

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './select.css';
-import iconRemove from '../../images/icon-remove-black.svg'
-
+import iconRemove from '../../images/icon-remove-black.svg';
 
 interface Option {
     value: string;
@@ -13,6 +12,7 @@ interface SelectProps {
     title: string;
     className: string;
     options: Option[];
+    showOptionsOrder?: boolean;
 }
 
 function Select(props: SelectProps) {
@@ -30,7 +30,9 @@ function Select(props: SelectProps) {
 
     return (
         <div className="select-container-options">
-            <label className='label-select' htmlFor={props.id}>{props.title}</label>
+            <label className="label-select" htmlFor={props.id}>
+                {props.title}
+            </label>
             <select id={props.id} className={props.className} onChange={handleOptionSelect}>
                 {props.options.map(option => (
                     <option key={option.value} value={option.value}>
@@ -38,16 +40,18 @@ function Select(props: SelectProps) {
                     </option>
                 ))}
             </select>
-            <div className='options-order'>
-                {selectedOptions.map((option, index) => (
-                    <div key={option} className="selected-option">
-                        <span>{option}</span>
-                        <button className="button-remove" onClick={() => handleOptionRemove(index)}>
-                            <img src={iconRemove} alt="icon-remove" />
-                        </button>
-                    </div>
-                ))}
-            </div>
+            {props.showOptionsOrder && (
+                <div className="options-order">
+                    {selectedOptions.map((option, index) => (
+                        <div key={option} className="selected-option">
+                            <span>{option}</span>
+                            <button className="button-remove" onClick={() => handleOptionRemove(index)}>
+                                <img src={iconRemove} alt="icon-remove" />
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

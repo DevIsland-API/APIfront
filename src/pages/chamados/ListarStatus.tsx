@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  FaSortUp,
-  FaSortDown,
-  FaChevronRight,
-  FaChevronLeft,
-} from "react-icons/fa";
-import { Container, Table, Form, FloatingLabel, Dropdown } from "react-bootstrap";
+import { FaSortUp, FaSortDown, FaChevronRight, FaChevronLeft} from "react-icons/fa";
+import { Container, Table, Form, FloatingLabel } from "react-bootstrap";
 import { useState, useEffect, useRef } from "react";
 import autoAnimate from "@formkit/auto-animate";
 import excluir from "../../images/excluir.png";
@@ -24,8 +19,8 @@ type Props = {}
 const ListarStatus = (props: Props) => {
 
 
-  const url_atual = window.location.href;
-  const id = window.location.href.split("/")[4];
+  // const url_atual = window.location.href;
+  // const id = window.location.href.split("/")[4];
 
   const [data, setData] = useState<Calls[]>([]);
 
@@ -90,7 +85,7 @@ const ListarStatus = (props: Props) => {
   //pagination
   const [pageNumber, setPageNumber] = useState(0);
   const itemsPerPage = 10;
-  const pagesVisited = pageNumber * itemsPerPage;
+  // const pagesVisited = pageNumber * itemsPerPage;
   const pageCount = Math.ceil(data.length / itemsPerPage);
   const changePage = ({ selected }: { selected: number }) => {
     setPageNumber(selected);
