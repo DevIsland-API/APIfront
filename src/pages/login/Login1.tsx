@@ -6,7 +6,7 @@ interface LoginFormInputs {
   password: string;
 }
 
-const Login: React.FC = () => {
+const Login1: React.FC = () => {
   const [formInputs, setFormInputs] = useState<LoginFormInputs>({
     email: "",
     password: "",
@@ -36,9 +36,9 @@ const Login: React.FC = () => {
 
   return (
     <div>
-      <h1 style={{textAlign: "center"}}>Login</h1>
+      <h1 style={{ textAlign: "center" }}>Login</h1>
       <form onSubmit={handleSubmit}>
-        <div style={{textAlign: "center"}}>
+        <div style={{ textAlign: "center" }}>
           <label>Email</label>
           <input
             type="email"
@@ -47,7 +47,7 @@ const Login: React.FC = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div style={{textAlign: "center", marginTop: 15}}>
+        <div style={{ textAlign: "center", marginTop: 15 }}>
           <label>Senha</label>
           <input
             type="password"
@@ -56,7 +56,7 @@ const Login: React.FC = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div style={{textAlign: "center", marginTop: 20}}>
+        <div style={{ textAlign: "center", marginTop: 20 }}>
           <button type="submit">Login</button>
         </div>
       </form>
@@ -64,4 +64,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Login1;

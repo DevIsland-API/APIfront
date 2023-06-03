@@ -37,5 +37,9 @@ html {
 }
 
 .link-button {
-  text-decoration: none;
+    text-decoration: none;
+}
+
+.div-create-user {
+    margin-top: 20px !important;
 }
