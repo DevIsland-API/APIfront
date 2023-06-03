@@ -1,4 +1,3 @@
-import HomePage from "../pages/Home/HomePage";
 import { RouteType } from "./config";
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import HomeIcon from '@mui/icons-material/Home';
@@ -6,10 +5,9 @@ import ListarChamados from "../pages/chamados/ListarChamados";
 import CriarChamado from "../pages/chamados/CriarChamado";
 import ListarStatus from "../pages/chamados/ListarStatus";
 import ChamadosLayout from "../pages/chamados/ChamadosLayout";
-import Login from "../pages/login/Login";
-
 import Login from "../pages/Login/Login";
-
+import HomePage from "../pages/Home/HomePage";
+import Signup from "../pages/User/CreateUser";
 
 const appRoutes: RouteType[] = [
     {
@@ -25,6 +23,11 @@ const appRoutes: RouteType[] = [
             displayText: "Home",
             icon: <HomeIcon />
         }
+    },
+    {
+        path: "/signup",
+        element: <Signup />,
+        state: "signup",
     },
     {
         path: "/login",

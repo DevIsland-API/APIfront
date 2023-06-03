@@ -5,6 +5,8 @@ interface InputProps {
     name: string;
     title: string;
     placeholder: string;
+    value: string;
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputPassword: React.FC<InputProps> = ({
@@ -12,12 +14,9 @@ const InputPassword: React.FC<InputProps> = ({
     name,
     title,
     placeholder,
+    value,
+    onChange,
 }) => {
-    const [value, setValue] = useState('');
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value);
-    };
 
     return (
         <div className="form-group">
@@ -33,7 +32,7 @@ const InputPassword: React.FC<InputProps> = ({
                     name={name}
                     className="form-input"
                     placeholder={placeholder}
-                    onChange={handleChange}
+                    onChange={onChange}
                     value={value}
                 />
             </div>

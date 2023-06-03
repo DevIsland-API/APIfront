@@ -10,9 +10,10 @@ const MainLayout = () => {
     const location = useLocation();
 
     // Verifique se a rota atual é a página de login
-    const isLoginPage = location.pathname === "/login"; // substitua "/login" pela rota da sua página de login
+    const isLoginPage = location.pathname === "/login";
+    const isSignUpPage = location.pathname === "/signup"
 
-    if (isLoginPage) {
+    if (isLoginPage || isSignUpPage) {
         return (
             <Box
                 component="main"
